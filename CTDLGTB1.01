@@ -1,0 +1,38 @@
+//*Cho mảng 1 chiều các số nguyên. Viết hàm tính tổng các số chẵn trong mảng bằng phương pháp đệ quy*//
+
+#include<iostream>
+using namespace std;
+const int Max = 100;
+int sum(int a[], int n) {
+	if (n == 0)
+		return 0;
+	if (a[n] % 2 == 0)
+		return sum(a, n - 1) + a[n];
+	else
+		return 	sum(a,n-1);
+}
+void nhap(int a[], int n) {
+	 for (int i = 0; i < n; i++) {
+		 cout << "Nhap phan tu a[" << i << "] : ";
+		 cin >> a[i];
+	 }
+}
+
+void xuat(int a[], int n) {
+ for (int i = 0; i < n; i++)
+ cout << a[i] << "  ";
+}
+int main(){
+	 int a[Max];
+	 int n;
+	 
+	 cout << "Nhap n: ";
+	 cin >> n;
+	 
+	 nhap(a, n);
+	 cout << "mang vua nhap la: \n" << endl;
+	 xuat(a,n);
+	 int tong = sum(a,n-1);
+   	 cout << "\ntong chan: " << sum(a,n-1) << endl;
+	 return 0;
+}
